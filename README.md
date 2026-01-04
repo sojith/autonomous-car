@@ -27,4 +27,7 @@ The Base of each of those transistor switches is then connected to ESP32 pins.
 
 The +3V supply from the ESP32 board is sufficient to power the RC
 
+<img width="784" height="588" alt="RC_ESP32_hack" src="https://github.com/user-attachments/assets/8913831c-b3e8-4ad4-8fa0-fd27b3084966" />
+
+
 
