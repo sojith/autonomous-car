@@ -1,5 +1,6 @@
 # autonomous-car
 An open-source autonomous RC car project that uses AI for perception and decision-making, inviting the community to collaborate on improving its intelligence, performance, and reliability.
+Link to see it in action - https://youtu.be/dm20lDCO6KI
 
 #### Components used
 The project uses a simple RC car (the cheapest there was on Amazon - https://www.amazon.in/dp/B0DQGN2913). 
