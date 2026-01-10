@@ -6,9 +6,10 @@ Link to see it in action - https://youtu.be/dm20lDCO6KI
 The project uses a simple RC car (the cheapest there was on Amazon - https://www.amazon.in/dp/B0DQGN2913). 
 
 This project also uses the  open source software and hardware platforms
-ESP32 - a microcontroller with WiFi and Bluetooth. Hosts a webserver, and also controls the RC Car
-OpenCV for Computer Vision - Used by the algorigthm to connect to a camera. Locates the car, and the target and computes the distances, angles and speed at which the car should run
-Bipolar Transistors, 10K Ω resistors (PCB, jumper wire, header pins, soldering iron etc)
+
+1. ESP32 - a microcontroller with WiFi and Bluetooth. Hosts a webserver, and also controls the RC Car
+2. OpenCV for Computer Vision - Used by the algorigthm to connect to a camera. Locates the car, and the target and computes the distances, angles and speed at which the car should run
+3. Bipolar Transistors, 10K Ω resistors (PCB, jumper wire, header pins, soldering iron etc)
 
 ## Summary
 The project can be split into the following component, which are integrated at the end
@@ -17,7 +18,7 @@ The project can be split into the following component, which are integrated at t
 3. Also, code ESP32 to host a webserver(an http endpoint). The requests coming to the http endpoint will contain the instructions to control the RC car (front, back, left, right and duration)
 4. The code that makes the car autonomous - uses a camera to locate your car/target; calculates the movements required by the car to reach the target; and then sends adequate requests to ESP32 webserver
 
-TL;DR . Hack the remote with ESP32. Algorithm to determine the position of the car, and decide its movement. Algorithm then coded in python. Uses OpenCV and basic maths (coordinate geometry)
+<ins>TL;DR</ins> . Hack the remote with ESP32. Algorithm to determine the position of the car, and decide its movement. Algorithm then coded in python. Uses OpenCV and basic maths (coordinate geometry)
 
 ## In Detail
 
@@ -36,7 +37,7 @@ Step 3 - Connect each of the 4 BJT switches to the pins where the 4 tactile swit
 
 Step 4 - Solder a wire (or a header pin, which then can be connected to a wire) to the base resistor of the 4 BJT switches. Eventually this wire will control the movement of the CAR
 
-Time to test - Connect the battery terminals to ESP32 (ie B+ on PCB to +3V on esp32; B- to GND on ESP32). Now pick up the wire connected to the base resistor of any one of the 4 BJT switches. Connect it to +3V on ESP32, and check for the response from the car. (you can try combinations - like, pick up the base resistor connections for front and left, and then connect it to +3V, and see if the care moves front and left.)
+<ins>Time to test</ins> - Connect the battery terminals to ESP32 (ie B+ on PCB to +3V on esp32; B- to GND on ESP32). Now pick up the wire connected to the base resistor of any one of the 4 BJT switches. Connect it to +3V on ESP32, and check for the response from the car. (you can try combinations - like, pick up the base resistor connections for front and left, and then connect it to +3V, and see if the care moves front and left.)
 
 (If this is your first time soldering then probably try making the ciruit on a breadboard first.... )
 
@@ -70,7 +71,7 @@ Your ESP32 code now runs a webserver capable of receiving https requests in this
 <duration> is in milliseconds and is supposed to be the time for wich the car should move. Its the duration for which the ESP32 pins will be in HIGH state
 
 
-Time to test - the http request to move the car forward and right for 1s would be http://192.168.1.100/action/front-right/time/1000/end
+<ins>Time to test</ins> - the http request to move the car forward and right for 1s would be http://192.168.1.100/action/front-right/time/1000/end
 
 Now ping your ESP32's ip from the command line `ping 192.168.1.100`. Successfull ping means you can connect to the ESP32 from your laptop
 
