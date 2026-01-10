@@ -12,12 +12,12 @@ Bipolar Transistors, 10K Ω resistors (PCB, jumper wire, header pins, soldering 
 
 ## Summary
 The project can be split into the following component, which are integrated at the end
-1. Hack the remote of the car, and replace its manual switch with a Bipolar transitor (basically transistor as a swtich). There'd be a transistor switch each for front, back, left and right
-2. Code ESP32 such that it can control the transistor switches mentioned earlier. 4 pins from ESP32 connected to 4 transistor switches; +3V/GND from ESP32 connected to the remotes +/- battery terminals
+1. Hack the remote of the car, and replace its manual switch with a Bipolar transitor (basically transistor as a switch, BJT switches). There'd be a BJT switch each for front, back, left and right
+2. Code ESP32 such that it can control the BJT switches I mentioned earlier. 4 pins from ESP32 connected to 4 BJT switches; +3V/GND from ESP32 connected to the remotes +/- battery terminals
 3. Also, code ESP32 to host a webserver(an http endpoint). The requests coming to the http endpoint will contain the instructions to control the RC car (front, back, left, right and duration)
 4. The ComputerVision code which - uses a camera to locate your car/target; calculates the movements required by the car to reach the target; and then sends adequate requests to ESP32 webserver
 
-TL;DR . Hack the remote with ESP32. Algorithm to determine the position of the car, and decide its movement. Algorithm, coded in python. Uses OpenCV and basic maths (coordinate geometry)
+TL;DR . Hack the remote with ESP32. Algorithm to determine the position of the car, and decide its movement. Algorithm then coded in python. Uses OpenCV and basic maths (coordinate geometry)
 
 ## In Detail
 
