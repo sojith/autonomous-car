@@ -15,7 +15,7 @@ The project can be split into the following component, which are integrated at t
 1. Hack the remote of the car, and replace its manual switch with a Bipolar transitor (basically transistor as a switch, BJT switches). There'd be a BJT switch each for front, back, left and right
 2. Code ESP32 such that it can control the BJT switches I mentioned earlier. 4 pins from ESP32 connected to 4 BJT switches; +3V/GND from ESP32 connected to the remotes +/- battery terminals
 3. Also, code ESP32 to host a webserver(an http endpoint). The requests coming to the http endpoint will contain the instructions to control the RC car (front, back, left, right and duration)
-4. The ComputerVision code which - uses a camera to locate your car/target; calculates the movements required by the car to reach the target; and then sends adequate requests to ESP32 webserver
+4. The code that makes the car autonomous - uses a camera to locate your car/target; calculates the movements required by the car to reach the target; and then sends adequate requests to ESP32 webserver
 
 TL;DR . Hack the remote with ESP32. Algorithm to determine the position of the car, and decide its movement. Algorithm then coded in python. Uses OpenCV and basic maths (coordinate geometry)
 
@@ -61,7 +61,25 @@ Step 6. Connect the battery terminals on the RC  to ESP32 (ie B+ on PCB to +3V o
 
 Step 7. Identify the ip address of your esp32. To do so switch on your wifi. Then switch on your ESP32. The ESP32 will connect to WIFI (because step 2). Open your wifi's console on your laptop and then shoud be able to find the ip address of the esp32. What i have done is to permanently assign an ip address to my esp32 (like 192.168.1.100)
 
-Your ESP32 code now runs a webserver capable of receiving https requests.
+Your ESP32 code now runs a webserver capable of receiving https requests in this format - http://<ip address of esp32>/action/<direction>/time/<duration>/end
+
+<ip address of esp32> is the ip address that the Wifi assigned to your esp32. In my case it is 192.168.1.100
+
+<direction> can be - front (will enable pin 13); back (will enable 15); front-left (pin 13 and 19 enabled); front-right (pin 13 and 32 enabled); back-left (pin 15 & 19); back-right(pin 15 & 32)
+
+<duration> is in milliseconds and is supposed to be the time for wich the car should move. Its the duration for which the ESP32 pins will be in HIGH state
+
+
+Time to test - the http request to move the car forward and right for 1s would be http://192.168.1.100/action/front-right/time/1000/end
+
+Now ping your ESP32's ip from the command line `ping 192.168.1.100`. Successfull ping means you can connect to the ESP32 from your laptop
+
+Open a browser, and paste the above url in it. (You can also open Develper options if you want to check the response received)
+
+The car shoud move accordingly
+
+
+#### 4. The code that makes the car autonomous.................
 
 
 
