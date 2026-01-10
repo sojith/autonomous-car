@@ -21,7 +21,7 @@ TL;DR . Hack the remote with ESP32. Algorithm to determine the position of the c
 
 ## In Detail
 
-#### Hack the remote of the car........... 
+#### 1. Hack the remote of the car........... 
 A standard Remote Control of an RC car has 4 switches - front, back, right and left. Open it, remove the plastics, the connections to the battery, everything until you are left with the circuit board and the components on it. The circuit board will have 
 1. 5 tactile switches (4 pin) - you can see where they were positioned in the picture (1). The 4 tactitle switches in the corners control the movement. The 5th switch at the centre is the power button
 2. The battery terminals (They will be marked B+ and B-).
@@ -41,6 +41,23 @@ Time to test - Connect the battery terminals to ESP32 (ie B+ on PCB to +3V on es
 (If this is your first time soldering then probably try making the ciruit on a breadboard first.... )
 
 <img width="784" height="588" alt="RC_ESP32_hack" src="https://github.com/user-attachments/assets/8913831c-b3e8-4ad4-8fa0-fd27b3084966" />
+
+#### 2 & 3. Code ESP32........... 
+The ESP32 microncontroler will server as the integration between your alogrithm, and the hacked RC of your car. So while it recieves the requests from your alogrithm via the web server it hosts, it will interpet those request and send signals to the BJT switches connected to your RC. This is how you will do so.
+
+You will need a wifi, because that's how the alogorithm running on your PC will send commands wirelessly to your esp32
+
+Step 1. Download code [09-remote-control.ino](https://github.com/sojith/autonomous-car/blob/main/09-remote-control.ino) that is provided in this repo. 
+Step 2. Update the code with your Wifi name, and its password in line 5 & 6.
+Step 3. Upload the code to ESP32. 
+Step 4. Identify pins 13,15,19 and 32 on ESP32. 13 & 15 will control the front and back montions. 19 & 32 will control the the left and right motion.
+Step 5. Connect pin 13 from ESP32 to the base resistor of the BJT switch which controls forward movment of the car. Similarly pin15 to BJT switch for backward movement; pin 19 to BJT switch for left; and pin 32 to BJT switch for right
+Step 6. Connect the battery terminals on the RC  to ESP32 (ie B+ on PCB to +3V on esp32; B- to GND on ESP32)
+
+Step 7. Identify the ip address of your esp32. To do so switch on your wifi. Then switch on your ESP32. The ESP32 will connect to WIFI (because step 2). Open your wifi's console on your laptop and then shoud be able to find the ip address of the esp32. What i have done is to permanently assign an ip address to my esp32 (like 192.168.1.100)
+
+Your ESP32 code now runs a webserver capable of receiving https requests.
+
 
 
 
