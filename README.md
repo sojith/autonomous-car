@@ -41,7 +41,8 @@ Step 4 - Solder a wire (or a header pin, which then can be connected to a wire) 
 
 (If this is your first time soldering then probably try making the ciruit on a breadboard first.... )
 
-<img width="784" height="588" alt="RC_ESP32_hack" src="https://github.com/user-attachments/assets/8913831c-b3e8-4ad4-8fa0-fd27b3084966" />
+<img width="779" height="612" alt="RC_ESP32_hack1" src="https://github.com/user-attachments/assets/50d94dc0-9a31-4cb0-95dd-95379c4904e0" />
+
 
 #### 2 & 3. Code ESP32........... 
 The ESP32 microncontroler will server as the integration between your alogrithm, and the hacked RC of your car. So while it recieves the requests from your alogrithm via the web server it hosts, it will interpet those request and send signals to the BJT switches connected to your RC. This is how you will do so.
