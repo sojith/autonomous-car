@@ -71,13 +71,13 @@ Your ESP32 code now runs a webserver capable of receiving https requests in this
 <duration> is in milliseconds and is supposed to be the time for wich the car should move. Its the duration for which the ESP32 pins will be in HIGH state
 
 
-<ins>Time to test</ins> - the http request to move the car forward and right for 1s would be http://192.168.1.100/action/front-right/time/1000/end
+<ins>Time to test</ins> - Ping your ESP32's ip from the command line `ping 192.168.1.100`. Successfull ping means you can connect to the ESP32 from your laptop
 
-Now ping your ESP32's ip from the command line `ping 192.168.1.100`. Successfull ping means you can connect to the ESP32 from your laptop
+The http request to move the car forward and right for 1s would be http://192.168.1.100/action/front-right/time/1000/end
 
 Open a browser, and paste the above url in it. (You can also open Develper options if you want to check the response received)
 
-The car shoud move accordingly
+The car shoud move.
 
 
 #### 4. The code that makes the car autonomous.................
