@@ -62,13 +62,13 @@ Step 6. Connect the battery terminals on the RC  to ESP32 (ie B+ on PCB to +3V o
 
 Step 7. Identify the ip address of your esp32. To do so switch on your wifi. Then switch on your ESP32. The ESP32 will connect to WIFI (because step 2). Open your wifi's console on your laptop and then shoud be able to find the ip address of the esp32. What i have done is to permanently assign an ip address to my esp32 (like 192.168.1.100)
 
-Your ESP32 code now runs a webserver capable of receiving https requests in this format - http://<ip address of esp32>/action/<direction>/time/<duration>/end
+Your ESP32 code now runs a webserver capable of receiving https requests in this format - http://{ip address of esp32}/action/{direction}/time/{duration}/end
 
-<ip address of esp32> is the ip address that the Wifi assigned to your esp32. In my case it is 192.168.1.100
+{ip address of esp32} is the ip address that the Wifi assigned to your esp32. In my case it is 192.168.1.100
 
-<direction> can be - front (will enable pin 13); back (will enable 15); front-left (pin 13 and 19 enabled); front-right (pin 13 and 32 enabled); back-left (pin 15 & 19); back-right(pin 15 & 32)
+{direction} can be - front (will enable pin 13); back (will enable 15); front-left (pin 13 and 19 enabled); front-right (pin 13 and 32 enabled); back-left (pin 15 & 19); back-right(pin 15 & 32)
 
-<duration> is in milliseconds and is supposed to be the time for wich the car should move. Its the duration for which the ESP32 pins will be in HIGH state
+{duration} is in milliseconds and is supposed to be the time for wich the car should move. Its the duration for which the ESP32 pins will be in HIGH state
 
 
 <ins>Time to test</ins> - Ping your ESP32's ip from the command line `ping 192.168.1.100`. Successfull ping means you can connect to the ESP32 from your laptop
