@@ -48,10 +48,15 @@ The ESP32 microncontroler will server as the integration between your alogrithm,
 You will need a wifi, because that's how the alogorithm running on your PC will send commands wirelessly to your esp32
 
 Step 1. Download code [09-remote-control.ino](https://github.com/sojith/autonomous-car/blob/main/09-remote-control.ino) that is provided in this repo. 
+
 Step 2. Update the code with your Wifi name, and its password in line 5 & 6.
+
 Step 3. Upload the code to ESP32. 
+
 Step 4. Identify pins 13,15,19 and 32 on ESP32. 13 & 15 will control the front and back montions. 19 & 32 will control the the left and right motion.
+
 Step 5. Connect pin 13 from ESP32 to the base resistor of the BJT switch which controls forward movment of the car. Similarly pin15 to BJT switch for backward movement; pin 19 to BJT switch for left; and pin 32 to BJT switch for right
+
 Step 6. Connect the battery terminals on the RC  to ESP32 (ie B+ on PCB to +3V on esp32; B- to GND on ESP32)
 
 Step 7. Identify the ip address of your esp32. To do so switch on your wifi. Then switch on your ESP32. The ESP32 will connect to WIFI (because step 2). Open your wifi's console on your laptop and then shoud be able to find the ip address of the esp32. What i have done is to permanently assign an ip address to my esp32 (like 192.168.1.100)
